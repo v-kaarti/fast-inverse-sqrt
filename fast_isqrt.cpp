@@ -6,12 +6,12 @@
 
 using namespace std;
 
-constexpr float fast_isqrt(float operand) noexcept {
+float fast_isqrt(float operand) {
     // Check that we're using the correct floating point standard and real square root is attainable
     static_assert(numeric_limits<float>::is_iec559);
     assert(operand >= 0);
 
-    // Quake constant
+    // Quake constant (FP approximation of sqrt(2^127))
     uint32_t magic_number = 0x5f3759df;
 
     // Bit reinterpretation magic
